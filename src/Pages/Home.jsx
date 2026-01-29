@@ -3,7 +3,13 @@ import {
   faPhone,
   faCircleCheck,
   faUserTie,
+  faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
+import {
+  faFacebook,
+  faViber,
+  faWhatsapp,
+} from "@fortawesome/free-brands-svg-icons";
 
 export function Home() {
   const images = [
@@ -25,16 +31,19 @@ export function Home() {
 
   const servisi = [
     {
+      id: 1,
       title: "Klimatizacija",
       desc: "Montaža i servis klima uređaja.",
       icon: "❄️",
     },
     {
+      id: 2,
       title: "Bijela tehnika",
       desc: "Popravak perilica, sušilica i hladnjaka.",
       icon: "🧺",
     },
     {
+      id: 3,
       title: "Grijanje",
       desc: "Servis plinskih i električnih bojlera te peći.",
       icon: "🔥",
@@ -84,7 +93,7 @@ export function Home() {
           {servisi.map((item) => (
             <div
               className="text-white border border-white/10 bg-[#080808] rounded-xl py-6 px-8 "
-              key={item}
+              key={item.id}
             >
               <p className="text-3xl font-bold">
                 {item.icon} <br />
@@ -110,7 +119,7 @@ export function Home() {
           {images.map((item) => (
             <button
               className=" border rounded-full px-4 py-1 border-white/10 bg-[#080808] uppercase text-sm tracking-wide text-gray-400"
-              key={item}
+              key={item.id}
             >
               {item.name}
             </button>
@@ -137,7 +146,7 @@ export function Home() {
           {/* DRUGI SET SLIKA */}
           {images.map((item) => (
             <div
-              key={`dup-${item.id}`}
+              key={item.id}
               className="inline-flex items-center justify-center w-32 md:w-52 h-16 mx-6 md:mx-10 shrink-0"
             >
               <img
@@ -150,7 +159,7 @@ export function Home() {
         </div>
       </div>
 
-      <div className="bg-[#030303] py-10">
+      <div className="bg-black py-10">
         <div className="text-center items-center ">
           <h2 className="text-yellow-500 uppercase tracking-[5px] font-bold text-sm">
             O nama
@@ -201,6 +210,81 @@ export function Home() {
           </div>
         </div>
       </div>
+
+      <div className="bg-[#030303] py-20">
+        <div className="text-center items-center ">
+          <h2 className="text-yellow-500 uppercase tracking-[5px] font-bold text-sm">
+            Imate upit?
+          </h2>
+          <h3 className="text-white font-bold text-3xl mx-1">Kontakt</h3>
+        </div>
+        <div className="text-center grid grid-cols-1 md:grid-cols-3 py-6 gap-6 md:gap-0 md:mx-32">
+          <a href="mailto:bozanovic.ivan00@gmail.com">
+            <div className="border  bg-black border-white/10 rounded-xl py-6 mx-6">
+              <FontAwesomeIcon
+                icon={faEnvelope}
+                className="text-yellow-500 text-2xl"
+              />
+              <h2 className="text-white font-bold text-2xl mx-1">Email</h2>
+              <p className="text-gray-400 ">bozanovic.ivan00@gmail.com</p>
+            </div>
+          </a>
+          <a href="tel:0995172098">
+            <div className="border  bg-black border-white/10 rounded-xl py-6 mx-6">
+              <FontAwesomeIcon
+                icon={faPhone}
+                className="text-yellow-500 text-2xl"
+              />
+              <h2 className="text-white font-bold text-2xl mx-1">Telefon</h2>
+              <p className="text-gray-400 ">099 517 2098</p>
+            </div>
+          </a>
+          <div className="border  bg-black border-white/10 rounded-xl py-6 mx-6">
+            <FontAwesomeIcon
+              icon={faPhone}
+              className="text-yellow-500 text-2xl"
+            />
+            <h2 className="text-white font-bold text-2xl mx-1">Adresa</h2>
+            <p className="text-gray-400 ">Vinkovci, Ul. Alojzija Stepinca 99</p>
+          </div>
+        </div>
+        <div className="justify-center flex gap-5">
+          <a
+            href="https://wa.me/385995172098"
+            target="_blank"
+            className="text-gray-500 hover:text-green-500 text-4xl transition-colors"
+          >
+            <FontAwesomeIcon icon={faWhatsapp} />
+          </a>
+          <a
+            href="viber://chat?number=%2B385995172098"
+            className="text-gray-500 hover:text-purple-500 text-4xl transition-colors"
+          >
+            <FontAwesomeIcon icon={faViber} />
+          </a>
+          <a
+            href="#"
+            className="text-gray-500 hover:text-blue-600 text-4xl transition-colors"
+          >
+            <FontAwesomeIcon icon={faFacebook} />
+          </a>
+        </div>
+        <div className="w-full h-[350px] md:h-[450px] border-t border-white/10 my-10 md:w-2/3 md:mx-auto">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4847.527318291219!2d18.768980212587486!3d45.289408418095476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475cf56dc14841d3%3A0x7e7051ef85ae98d4!2sBO%C5%BDANOVI%C4%86%2C%20obrt%20za%20popravak%20ku%C4%87anskih%20aparata%2C%20vl.%20Ivan%20Bo%C5%BEanovi%C4%87!5e0!3m2!1shr!2shr!4v1769708498255!5m2!1shr!2shr"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            className="grayscale contrast-[1.0]"
+          ></iframe>
+        </div>
+      </div>
+      <footer className="bg-black text-white/30 text-center py-10 text-xs tracking-[5px] uppercase">
+        Copyright © {new Date().getFullYear()} - <span>Božanović</span>
+      </footer>
     </div>
   );
 }
