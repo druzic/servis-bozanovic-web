@@ -1,5 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPhone } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPhone,
+  faCircleCheck,
+  faUserTie,
+} from "@fortawesome/free-solid-svg-icons";
 
 export function Home() {
   const images = [
@@ -10,7 +14,7 @@ export function Home() {
     { id: 5, img: "marke/lg.png", name: "LG" },
     { id: 6, img: "marke/liebherr.png", name: "Liebherr" },
     { id: 7, img: "marke/midea.png", name: "Midea" },
-    { id: 8, img: "marke/plamen.png", name: "Plamen" },
+    { id: 8, img: "marke/plamen.png", name: "Plamen Požega" },
     { id: 9, img: "marke/sharp.png", name: "Sharp" },
     { id: 10, img: "marke/simfer.png", name: "Simfer" },
     { id: 11, img: "marke/smeg.png", name: "Smeg" },
@@ -50,10 +54,10 @@ export function Home() {
       </div>
 
       <div className="bg-black text-white h-[calc(100vh-97px)] justify-center text-center items-center flex flex-col">
-        <span className="border border-yellow-500 px-4 rounded-full text-md uppercase">
+        <span className="border border-yellow-500 px-4 rounded-full text-md uppercase mb-4">
           Vinkovci i okolica
         </span>
-        <h1 className="text-6xl font-bold tracking-tight mb-6">
+        <h1 className="text-6xl font-bold tracking-tight mb-6 mx-1">
           Vaši aparati u <br />
           <span className="bg-linear-to-r from-white to-yellow-300 text-transparent bg-clip-text">
             najboljim rukama.
@@ -72,7 +76,7 @@ export function Home() {
           <h2 className="text-yellow-500 uppercase tracking-[5px] font-bold text-sm">
             Što radimo
           </h2>
-          <h3 className="text-white font-bold text-3xl">
+          <h3 className="text-white font-bold text-3xl mx-1">
             Profesionalne usluge
           </h3>
         </div>
@@ -98,7 +102,7 @@ export function Home() {
           <h2 className="text-yellow-500 uppercase tracking-[5px] font-bold text-sm">
             Mreža partnera
           </h2>
-          <h3 className="text-white font-bold text-3xl">
+          <h3 className="text-white font-bold text-3xl mx-1">
             Ovlašteni servis i montaža
           </h3>
         </div>
@@ -146,12 +150,55 @@ export function Home() {
         </div>
       </div>
 
-      <div className="bg-blue-300">
-        tu idu inf o obrtu
-        <div>
-          obrt za popravak kućanskih aparata +385 99 517 2098
-          bozanovic.ivan00@gmail.com Alojzija Stepinca 99, 32100 Vinkovci vl.
-          Ivan Božanović, univ.mag.ing.el.
+      <div className="bg-[#030303] py-10">
+        <div className="text-center items-center ">
+          <h2 className="text-yellow-500 uppercase tracking-[5px] font-bold text-sm">
+            O nama
+          </h2>
+          <h3 className="text-white font-bold text-3xl mx-1">Obrt Božanović</h3>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 md:w-3/4 mx-auto">
+          <div className="mx-6">
+            <p className="text-gray-400 text-left py-4">
+              Neki tekst AI nakenjo. Kvaliteta i povjerenje temelj su mog obrta.
+              Kao inženjer elektrotehnike, svakom uređaju pristupam s najvišom
+              razinom stručnosti.
+            </p>
+            <div className=" space-y-2">
+              <div className="flex items-center">
+                <FontAwesomeIcon
+                  icon={faCircleCheck}
+                  className="text-yellow-500"
+                />{" "}
+                <span className="text-white">Garancija na rad</span>
+              </div>
+              <div className="flex items-center">
+                <FontAwesomeIcon
+                  icon={faCircleCheck}
+                  className="text-yellow-500"
+                />{" "}
+                <span className="text-white">Garancija na rad</span>
+              </div>
+              <div className="flex items-center">
+                <FontAwesomeIcon
+                  icon={faCircleCheck}
+                  className="text-yellow-500"
+                />{" "}
+                <span className="text-white">Garancija na rad</span>
+              </div>
+            </div>
+          </div>
+          <div className="text-white border border-white/10 bg-[#080808] rounded-xl py-6 px-8 text-center relative m-6">
+            <FontAwesomeIcon
+              icon={faUserTie}
+              className="absolute opacity-5 right-0 bottom-0 text-9xl"
+            />
+            <h2 className="text-yellow-500 uppercase  font-bold text-sm">
+              Vlasnik
+            </h2>
+            <p className="text-3xl font-bold">Ivan Božanović</p>
+            <p className="text-gray-400 text-md my-2">univ.mag.ing.el.</p>
+          </div>
         </div>
       </div>
     </div>
