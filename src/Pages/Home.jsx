@@ -92,7 +92,7 @@ export function Home() {
         <div className="md:flex grid grid-cols-1 md:grid-cols-3 justify-center items-center gap-6 mx-10 ">
           {servisi.map((item) => (
             <div
-              className="text-white border border-white/10 bg-[#080808] rounded-xl py-6 px-8 "
+              className="text-white border border-white/10 bg-[#070707] rounded-xl py-6 px-8 "
               key={item.id}
             >
               <p className="text-3xl font-bold">
@@ -197,7 +197,7 @@ export function Home() {
               </div>
             </div>
           </div>
-          <div className="text-white border border-white/10 bg-[#080808] rounded-xl py-6 px-8 text-center relative m-6">
+          <div className="text-white border border-white/10 bg-[#070707] rounded-xl py-6 px-8 text-center relative m-6">
             <FontAwesomeIcon
               icon={faUserTie}
               className="absolute opacity-5 right-0 bottom-0 text-9xl"
@@ -211,7 +211,7 @@ export function Home() {
         </div>
       </div>
 
-      <div className="bg-[#030303] py-20">
+      <div className="bg-[#070707] py-20">
         <div className="text-center items-center ">
           <h2 className="text-yellow-500 uppercase tracking-[5px] font-bold text-sm">
             Imate upit?
@@ -282,7 +282,7 @@ export function Home() {
           ></iframe>
         </div>
       </div>
-      <footer className="bg-black text-white/30 text-center py-10 text-xs tracking-[5px] uppercase">
+      <footer className="bg-black text-white/30 text-center py-10 text-xs tracking-[5px] uppercase border-t border-white/10">
         Copyright © {new Date().getFullYear()} - <span>Božanović</span>
       </footer>
     </div>
