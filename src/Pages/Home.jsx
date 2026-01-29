@@ -80,6 +80,38 @@ export function Home() {
         </a>
       </div>
 
+      <div className="bg-black py-10 overflow-hidden border-b border-white/5">
+        <div className="flex animate-marquee">
+          {/* PRVI SET SLIKA */}
+          {images.map((item) => (
+            <div
+              key={item.id}
+              className="inline-flex items-center justify-center w-32 md:w-52 h-16 mx-6 md:mx-10 shrink-0"
+            >
+              <img
+                src={item.img}
+                alt="brand"
+                className="max-h-12 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+              />
+            </div>
+          ))}
+
+          {/* DRUGI SET SLIKA */}
+          {images.map((item) => (
+            <div
+              key={item.id}
+              className="inline-flex items-center justify-center w-32 md:w-52 h-16 mx-6 md:mx-10 shrink-0"
+            >
+              <img
+                src={item.img}
+                alt="brand"
+                className="max-h-12 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
       <div className="bg-[#030303] justify-center py-10">
         <div className="text-center items-center my-12">
           <h2 className="text-yellow-500 uppercase tracking-[5px] font-bold text-sm">
@@ -123,38 +155,6 @@ export function Home() {
             >
               {item.name}
             </button>
-          ))}
-        </div>
-      </div>
-
-      <div className="bg-black py-10 overflow-hidden border-b border-white/5">
-        <div className="flex animate-marquee">
-          {/* PRVI SET SLIKA */}
-          {images.map((item) => (
-            <div
-              key={item.id}
-              className="inline-flex items-center justify-center w-32 md:w-52 h-16 mx-6 md:mx-10 shrink-0"
-            >
-              <img
-                src={item.img}
-                alt="brand"
-                className="max-h-12 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
-              />
-            </div>
-          ))}
-
-          {/* DRUGI SET SLIKA */}
-          {images.map((item) => (
-            <div
-              key={item.id}
-              className="inline-flex items-center justify-center w-32 md:w-52 h-16 mx-6 md:mx-10 shrink-0"
-            >
-              <img
-                src={item.img}
-                alt="brand"
-                className="max-h-12 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
-              />
-            </div>
           ))}
         </div>
       </div>
