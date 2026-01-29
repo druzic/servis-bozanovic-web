@@ -77,10 +77,10 @@ export function Home() {
           </h3>
         </div>
         <div className="md:flex grid grid-cols-1 md:grid-cols-3 justify-center items-center gap-6 mx-10 ">
-          {servisi.map((item, i) => (
+          {servisi.map((item) => (
             <div
-              className="text-white border border-zinc-900 bg-[#080808] rounded-xl py-6 px-8 "
-              key={i}
+              className="text-white border border-white/10 bg-[#080808] rounded-xl py-6 px-8 "
+              key={item}
             >
               <p className="text-3xl font-bold">
                 {item.icon} <br />
@@ -88,6 +88,28 @@ export function Home() {
               </p>
               <p className="text-gray-400 text-md my-2">{item.desc}</p>
             </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Mreža partnera */}
+      <div className="bg-black py-12">
+        <div className="text-center items-center ">
+          <h2 className="text-yellow-500 uppercase tracking-[5px] font-bold text-sm">
+            Mreža partnera
+          </h2>
+          <h3 className="text-white font-bold text-3xl">
+            Ovlašteni servis i montaža
+          </h3>
+        </div>
+        <div className="flex flex-wrap text-center justify-center gap-3 mt-6 mx-8">
+          {images.map((item) => (
+            <button
+              className=" border rounded-full px-4 py-1 border-white/10 bg-[#080808] uppercase text-sm tracking-wide text-gray-400"
+              key={item}
+            >
+              {item.name}
+            </button>
           ))}
         </div>
       </div>
