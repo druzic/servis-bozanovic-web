@@ -4,14 +4,21 @@ import {
   faCircleCheck,
   faUserTie,
   faEnvelope,
+  faLocationDot,
+  faBars,
+  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
   faViber,
   faWhatsapp,
 } from "@fortawesome/free-brands-svg-icons";
+import { useState, useEffect } from "react";
+import { Link as ScrollLink } from "react-scroll";
 
 export function Home() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const images = [
     { id: 1, img: "marke/blitz.png", name: "Blitz" },
     { id: 2, img: "marke/fram.png", name: "Fram" },
@@ -49,23 +56,83 @@ export function Home() {
       icon: "🔥",
     },
   ];
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [isMenuOpen]);
 
   return (
-    <div>
+    <div className="overflow-x-hidden">
       {/* NAV */}
       <div className="flex bg-black text-white px-6 py-8 justify-between border-b border-gray-950">
         <div className="text-2xl font-bold tracking-tight">BOŽANOVIĆ</div>
-        <div className="text-xl text-yellow-500">
+        {/* <div className="text-xl text-yellow-500">
           <a href="tel:0995172098">
             <FontAwesomeIcon icon={faPhone} /> 099 517 2098
           </a>
-        </div>
+        </div>*/}
+
+        <button
+          className="text-2xl md:hidden"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          <FontAwesomeIcon icon={faBars} />
+        </button>
       </div>
 
-      <div className="bg-black text-white h-[calc(100vh-97px)] justify-center text-center items-center flex flex-col">
-        <span className="border border-yellow-500 px-4 rounded-full text-md uppercase mb-4">
-          Vinkovci i okolica
-        </span>
+      <section className="MOBILE-MENU  md:hidden">
+        <div
+          className={`bg-black fixed inset-0 z-100 top-0 left-0 w-full   ${isMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 invisible"} `}
+        >
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="absolute flex right-0 text-white text-3xl mt-15 mx-10"
+          >
+            <FontAwesomeIcon icon={faXmark} />
+          </button>
+
+          <div className="flex flex-col text-center justify-center h-full gap-10 text-white uppercase font-black text-4xl track-widest">
+            <ScrollLink to="usluge" onClick={() => setIsMenuOpen(false)}>
+              Usluge
+            </ScrollLink>
+            <ScrollLink to="partneri" onClick={() => setIsMenuOpen(false)}>
+              Partneri
+            </ScrollLink>
+            <ScrollLink to="onama" onClick={() => setIsMenuOpen(false)}>
+              O nama
+            </ScrollLink>
+            <ScrollLink
+              to="kontakt"
+              onClick={() => setIsMenuOpen(false)}
+              className="text-yellow-500 underline underline-offset-4"
+            >
+              Kontakt
+            </ScrollLink>
+          </div>
+        </div>
+      </section>
+
+      <div className="relative bg-black text-white h-[calc(100vh-97px)] justify-center text-center items-center flex flex-col  ">
+        <img
+          src="logo.png"
+          alt=""
+          className="max-w-1/5 md:max-w-1/8 lg:max-w-1/16"
+        />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 bg-yellow-500/11 blur-[120px] rounded-full"></div>
+        <div className="uppercase text-4xl tracking-tighter font-black">
+          Božanović
+        </div>
+        <div className="flex gap-3 items-center pb-6">
+          <div className="h-px w-8 bg-yellow-500"></div>
+          <span className="px-4 text-[12px] uppercase tracking-[4px] text-yellow-500">
+            Established 1993.
+          </span>
+          <div className="h-px w-8 bg-yellow-500"></div>
+        </div>
+
         <h1 className="text-6xl font-bold tracking-tight mb-6 mx-1">
           Vaši aparati u <br />
           <span className="bg-linear-to-r from-white to-yellow-300 text-transparent bg-clip-text">
@@ -74,7 +141,7 @@ export function Home() {
         </h1>
         <a
           href="tel:0995172098"
-          className=" rounded-xl px-16 py-4 font-bold bg-amber-300 text-black shadow-lg shadow-amber-300/30 uppercase tracking-widest"
+          className=" rounded-full px-16 py-4 font-bold bg-amber-300 text-black shadow-lg shadow-amber-300/30 uppercase tracking-[2px] mb-30 "
         >
           Nazovi
         </a>
@@ -112,7 +179,7 @@ export function Home() {
         </div>
       </div>
 
-      <div className="bg-[#030303] justify-center py-10">
+      <div className="bg-[#030303] justify-center py-10" id="usluge">
         <div className="text-center items-center my-12">
           <h2 className="text-yellow-500 uppercase tracking-[5px] font-bold text-sm">
             Što radimo
@@ -138,7 +205,7 @@ export function Home() {
       </div>
 
       {/* Mreža partnera */}
-      <div className="bg-black py-12">
+      <div className="bg-black py-12" id="partneri">
         <div className="text-center items-center ">
           <h2 className="text-yellow-500 uppercase tracking-[5px] font-bold text-sm">
             Mreža partnera
@@ -159,7 +226,7 @@ export function Home() {
         </div>
       </div>
 
-      <div className="bg-black py-10">
+      <div className="bg-black py-10" id="onama">
         <div className="text-center items-center ">
           <h2 className="text-yellow-500 uppercase tracking-[5px] font-bold text-sm">
             O nama
@@ -211,7 +278,7 @@ export function Home() {
         </div>
       </div>
 
-      <div className="bg-[#070707] py-20">
+      <div className="bg-[#070707] py-20" id="kontakt">
         <div className="text-center items-center ">
           <h2 className="text-yellow-500 uppercase tracking-[5px] font-bold text-sm">
             Imate upit?
@@ -241,7 +308,7 @@ export function Home() {
           </a>
           <div className="border  bg-black border-white/10 rounded-xl py-6 mx-6">
             <FontAwesomeIcon
-              icon={faPhone}
+              icon={faLocationDot}
               className="text-yellow-500 text-2xl"
             />
             <h2 className="text-white font-bold text-2xl mx-1">Adresa</h2>
@@ -277,7 +344,6 @@ export function Home() {
             style={{ border: 0 }}
             allowFullScreen=""
             loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
             className="grayscale contrast-[1.0]"
           ></iframe>
         </div>
