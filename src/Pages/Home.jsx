@@ -66,84 +66,141 @@ export function Home() {
 
   return (
     <div className="overflow-x-hidden">
-      {/* NAV */}
-      <div className="flex bg-black text-white px-6 py-8 justify-between border-b border-gray-950">
-        <div className="text-2xl font-bold tracking-tight">BOŽANOVIĆ</div>
-        {/* <div className="text-xl text-yellow-500">
-          <a href="tel:0995172098">
-            <FontAwesomeIcon icon={faPhone} /> 099 517 2098
-          </a>
-        </div>*/}
+      {/* NAVIGACIJA */}
+      <nav className="fixed top-0 left-0 w-full z-100 bg-black/80 backdrop-blur-md border-b border-white/5 px-6 py-6 md:py-8 flex justify-between items-center transition-all duration-300">
+        <div className="text-2xl font-black tracking-tighter text-white">
+          BOŽANOVIĆ
+        </div>
 
+        {/* DESKTOP MENU */}
+        <div className="hidden md:flex gap-8 uppercase font-bold text-sm tracking-widest text-white">
+          <ScrollLink
+            to="usluge"
+            className="cursor-pointer hover:text-yellow-500 transition-colors duration-300"
+          >
+            Usluge
+          </ScrollLink>
+          <ScrollLink
+            to="partneri"
+            className="cursor-pointer hover:text-yellow-500 transition-colors duration-300"
+          >
+            Partneri
+          </ScrollLink>
+          <ScrollLink
+            to="onama"
+            className="cursor-pointer hover:text-yellow-500 transition-colors duration-300"
+          >
+            O nama
+          </ScrollLink>
+          <ScrollLink
+            to="kontakt"
+            className="text-yellow-500 underline underline-offset-8 cursor-pointer hover:text-yellow-400 transition-all duration-300"
+          >
+            Kontakt
+          </ScrollLink>
+        </div>
+
+        {/* HAMBURGER MENU */}
         <button
-          className="text-2xl md:hidden"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="text-2xl text-white md:hidden active:scale-90 transition-transform"
+          onClick={() => setIsMenuOpen(true)}
         >
           <FontAwesomeIcon icon={faBars} />
         </button>
-      </div>
+      </nav>
 
-      <section className="MOBILE-MENU  md:hidden">
+      {/* MOBILE MENU */}
+      <section>
         <div
-          className={`bg-black fixed inset-0 z-100 top-0 left-0 w-full   ${isMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 invisible"} `}
+          className={`fixed inset-0 z-110 bg-black flex flex-col items-center justify-center transition-all duration-500 ease-in-out ${
+            isMenuOpen
+              ? "translate-y-0 opacity-100 visible"
+              : "-translate-y-full opacity-0 invisible"
+          }`}
         >
           <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="absolute flex right-0 text-white text-3xl mt-15 mx-10"
+            onClick={() => setIsMenuOpen(false)}
+            className="absolute top-10 right-10 text-white text-4xl hover:rotate-90 transition-transform duration-300"
           >
             <FontAwesomeIcon icon={faXmark} />
           </button>
 
-          <div className="flex flex-col text-center justify-center h-full gap-10 text-white uppercase font-black text-4xl track-widest">
-            <ScrollLink to="usluge" onClick={() => setIsMenuOpen(false)}>
+          <div className="flex flex-col text-center gap-12 text-white uppercase font-black text-4xl tracking-tighter px-10">
+            <ScrollLink
+              to="usluge"
+              onClick={() => setIsMenuOpen(false)}
+              className="hover:text-yellow-500 transition-colors"
+            >
               Usluge
             </ScrollLink>
-            <ScrollLink to="partneri" onClick={() => setIsMenuOpen(false)}>
+            <ScrollLink
+              to="partneri"
+              onClick={() => setIsMenuOpen(false)}
+              className="hover:text-yellow-500 transition-colors"
+            >
               Partneri
             </ScrollLink>
-            <ScrollLink to="onama" onClick={() => setIsMenuOpen(false)}>
+            <ScrollLink
+              to="onama"
+              onClick={() => setIsMenuOpen(false)}
+              className="hover:text-yellow-500 transition-colors"
+            >
               O nama
             </ScrollLink>
             <ScrollLink
               to="kontakt"
               onClick={() => setIsMenuOpen(false)}
-              className="text-yellow-500 underline underline-offset-4"
+              className="text-yellow-500 underline underline-offset-8"
             >
               Kontakt
             </ScrollLink>
           </div>
+
+          <div className="absolute bottom-10 text-white/20 text-xs tracking-[10px] uppercase font-bold">
+            Established 1993
+          </div>
         </div>
       </section>
 
-      <div className="relative bg-black text-white h-[calc(100vh-97px)] justify-center text-center items-center flex flex-col  ">
+      <div className="h-24 md:h-28 bg-black"></div>
+
+      {/* HERO */}
+      <div className="relative bg-black text-white h-[calc(100vh-97px)] justify-center text-center items-center flex flex-col overflow-hidden">
+        {/* GLOW */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 bg-yellow-500/10 blur-[120px] rounded-full animate-pulse pointer-events-none"></div>
+
         <img
           src="logo.png"
-          alt=""
-          className="max-w-1/5 md:max-w-1/8 lg:max-w-1/16"
+          alt="Logo"
+          className="max-w-1/5 md:max-w-1/8 lg:max-w-1/16 relative z-10 mb-2 transition-transform duration-1000 animate-in fade-in slide-in-from-top-4"
         />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 bg-yellow-500/11 blur-[120px] rounded-full"></div>
-        <div className="uppercase text-4xl tracking-tighter font-black">
+
+        <div className="uppercase text-4xl tracking-tighter font-black relative z-10 animate-in fade-in duration-700 delay-200">
           Božanović
         </div>
-        <div className="flex gap-3 items-center pb-6">
-          <div className="h-px w-8 bg-yellow-500"></div>
-          <span className="px-4 text-[12px] uppercase tracking-[4px] text-yellow-500">
-            Established 1993.
+
+        <div className="flex gap-4 items-center pb-8 relative z-10 animate-in fade-in duration-700 delay-400">
+          <div className="h-px w-10 bg-yellow-500/40"></div>
+          <span className="text-[11px] uppercase tracking-[5px] text-yellow-500 font-medium">
+            Established 1993
           </span>
-          <div className="h-px w-8 bg-yellow-500"></div>
+          <div className="h-px w-10 bg-yellow-500/40"></div>
         </div>
 
-        <h1 className="text-6xl font-bold tracking-tight mb-6 mx-1">
+        <h1 className="text-6xl md:text-7xl font-black tracking-tight mb-10 mx-1 relative z-10 leading-[0.9] animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-600">
           Vaši aparati u <br />
-          <span className="bg-linear-to-r from-white to-yellow-300 text-transparent bg-clip-text">
+          <span className="bg-linear-to-r from-white via-white to-yellow-500 text-transparent bg-clip-text">
             najboljim rukama.
           </span>
         </h1>
+
         <a
           href="tel:0995172098"
-          className=" rounded-full px-16 py-4 font-bold bg-amber-300 text-black shadow-lg shadow-amber-300/30 uppercase tracking-[2px] mb-30 "
+          className="group relative z-10 overflow-hidden rounded-full px-20 py-5 font-black bg-yellow-500 text-black shadow-[0_0_20px_rgba(234,179,8,0.3)] transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(234,179,8,0.5)] active:scale-95 uppercase tracking-[2px] mb-30 animate-in fade-in zoom-in-95 duration-700 delay-800"
         >
-          Nazovi
+          <span className="relative z-10">Nazovi odmah</span>
+
+          <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out"></div>
         </a>
       </div>
 
@@ -179,19 +236,19 @@ export function Home() {
         </div>
       </div>
 
-      <div className="bg-[#030303] justify-center py-10" id="usluge">
-        <div className="text-center items-center my-12">
-          <h2 className="text-yellow-500 uppercase tracking-[5px] font-bold text-sm">
+      <div className="bg-[#030303] py-24 px-6" id="usluge">
+        <div className="text-center items-center mb-16">
+          <h2 className="text-yellow-500 uppercase tracking-[6px] font-bold text-xs mb-2">
             Što radimo
           </h2>
-          <h3 className="text-white font-bold text-3xl mx-1">
+          <h3 className="text-white font-black text-4xl md:text-5xl mx-1">
             Profesionalne usluge
           </h3>
         </div>
-        <div className="md:flex grid grid-cols-1 md:grid-cols-3 justify-center items-center gap-6 mx-10 ">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           {servisi.map((item) => (
             <div
-              className="text-white border border-white/10 bg-[#070707] rounded-xl py-6 px-8 "
+              className="group text-white border border-white/5 bg-[#080808] rounded-2xl p-10 hover:border-yellow-500/30 transition-all hover:-translate-y-2 "
               key={item.id}
             >
               <p className="text-3xl font-bold">
@@ -204,20 +261,20 @@ export function Home() {
         </div>
       </div>
 
-      {/* Mreža partnera */}
-      <div className="bg-black py-12" id="partneri">
-        <div className="text-center items-center ">
-          <h2 className="text-yellow-500 uppercase tracking-[5px] font-bold text-sm">
+      {/* MREŽA PARTNERA */}
+      <div className="bg-black py-24" id="partneri">
+        <div className="text-center items-center mb-10 ">
+          <h2 className="text-yellow-500 uppercase tracking-[6px] font-bold text-sm mb-2">
             Mreža partnera
           </h2>
-          <h3 className="text-white font-bold text-3xl mx-1">
+          <h3 className="text-white font-black text-3xl mx-1">
             Ovlašteni servis i montaža
           </h3>
         </div>
-        <div className="flex flex-wrap text-center justify-center gap-3 mt-6 mx-8">
+        <div className="flex flex-wrap text-center justify-center gap-3 max-w-4xl mx-auto px-6">
           {images.map((item) => (
             <button
-              className=" border rounded-full px-4 py-1 border-white/10 bg-[#080808] uppercase text-sm tracking-wide text-gray-400"
+              className=" border rounded-full px-5 py-2 border-white/10 bg-white/5 uppercase text-xs tracking-wider text-gray-300 hover:bg-yellow-500 hover:text-black transition-colors cursor-default"
               key={item.id}
             >
               {item.name}
@@ -226,126 +283,141 @@ export function Home() {
         </div>
       </div>
 
-      <div className="bg-black py-10" id="onama">
-        <div className="text-center items-center ">
-          <h2 className="text-yellow-500 uppercase tracking-[5px] font-bold text-sm">
-            O nama
-          </h2>
-          <h3 className="text-white font-bold text-3xl mx-1">Obrt Božanović</h3>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 md:w-3/4 mx-auto">
-          <div className="mx-6">
-            <p className="text-gray-400 text-left py-4">
-              Neki tekst AI nakenjo. Kvaliteta i povjerenje temelj su mog obrta.
-              Kao inženjer elektrotehnike, svakom uređaju pristupam s najvišom
-              razinom stručnosti.
+      {/* O NAMA */}
+      <section className="bg-[#030303] py-24" id="onama">
+        <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          <div>
+            <h2 className="text-yellow-500 uppercase tracking-[6px] font-bold text-xs mb-2">
+              Tradicija i kvaliteta
+            </h2>
+            <h3 className="text-white font-black text-4xl mb-6">
+              Obrt Božanović
+            </h3>
+            <p className="text-gray-400 text-lg leading-relaxed mb-8">
+              Kvaliteta i povjerenje temelj su mog obrta od 1993. godine. Kao
+              inženjer elektrotehnike, svakom uređaju pristupam s najvišom
+              razinom stručnosti i preciznosti, osiguravajući dugovječnost vaših
+              uređaja.
             </p>
-            <div className=" space-y-2">
-              <div className="flex items-center">
-                <FontAwesomeIcon
-                  icon={faCircleCheck}
-                  className="text-yellow-500"
-                />{" "}
-                <span className="text-white">Garancija na rad</span>
-              </div>
-              <div className="flex items-center">
-                <FontAwesomeIcon
-                  icon={faCircleCheck}
-                  className="text-yellow-500"
-                />{" "}
-                <span className="text-white">Garancija na rad</span>
-              </div>
-              <div className="flex items-center">
-                <FontAwesomeIcon
-                  icon={faCircleCheck}
-                  className="text-yellow-500"
-                />{" "}
-                <span className="text-white">Garancija na rad</span>
-              </div>
+            <div className="space-y-4">
+              {[
+                "Garancija na svaki rad",
+                "Originalni rezervni dijelovi",
+                "Brz dolazak na adresu",
+              ].map((text, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <FontAwesomeIcon
+                    icon={faCircleCheck}
+                    className="text-yellow-500"
+                  />
+                  <span className="text-white font-medium">{text}</span>
+                </div>
+              ))}
             </div>
           </div>
-          <div className="text-white border border-white/10 bg-[#070707] rounded-xl py-6 px-8 text-center relative m-6">
-            <FontAwesomeIcon
-              icon={faUserTie}
-              className="absolute opacity-5 right-0 bottom-0 text-9xl"
-            />
-            <h2 className="text-yellow-500 uppercase  font-bold text-sm">
-              Vlasnik
-            </h2>
-            <p className="text-3xl font-bold">Ivan Božanović</p>
-            <p className="text-gray-400 text-md my-2">univ.mag.ing.el.</p>
+
+          <div className="relative group">
+            <div className="absolute inset-0 bg-yellow-500 rounded-2xl rotate-3 group-hover:rotate-1 transition-transform"></div>
+            <div className="relative text-white border border-white/10 bg-[#0a0a0a] rounded-2xl p-12 text-center overflow-hidden">
+              <FontAwesomeIcon
+                icon={faUserTie}
+                className="absolute -right-4 -bottom-4 opacity-5 text-9xl"
+              />
+              <h2 className="text-yellow-500 uppercase font-bold text-xs tracking-widest mb-2">
+                Vlasnik
+              </h2>
+              <p className="text-4xl font-black mb-1">Ivan Božanović</p>
+              <p className="text-gray-400 font-mono tracking-tighter">
+                univ.mag.ing.el.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="bg-[#070707] py-20" id="kontakt">
-        <div className="text-center items-center ">
-          <h2 className="text-yellow-500 uppercase tracking-[5px] font-bold text-sm">
+      {/* KONTAKT */}
+      <div className="bg-[#070707] py-24" id="kontakt">
+        <div className="text-center items-center mb-16 ">
+          <h2 className="text-yellow-500 uppercase tracking-[6px] font-bold text-sm">
             Imate upit?
           </h2>
-          <h3 className="text-white font-bold text-3xl mx-1">Kontakt</h3>
+          <h3 className="text-white font-black text-4xl mx-1">Kontakt</h3>
         </div>
-        <div className="text-center grid grid-cols-1 md:grid-cols-3 py-6 gap-6 md:gap-0 md:mx-32">
-          <a href="mailto:bozanovic.ivan00@gmail.com">
-            <div className="border  bg-black border-white/10 rounded-xl py-6 mx-6">
+        <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          {[
+            {
+              icon: faEnvelope,
+              title: "Email",
+              info: "bozanovic.ivan00@gmail.com",
+              link: "mailto:bozanovic.ivan00@gmail.com",
+            },
+            {
+              icon: faPhone,
+              title: "Telefon",
+              info: "099 517 2098",
+              link: "tel:0995172098",
+            },
+            {
+              icon: faLocationDot,
+              title: "Adresa",
+              info: "Vinkovci, A. Stepinca 99",
+              link: "https://www.google.com/maps?hl=hr&gl=hr&um=1&ie=UTF-8&fb=1&sa=X&ftid=0x475cf56dc14841d3:0x7e7051ef85ae98d4",
+            },
+          ].map((item, idx) => (
+            <a
+              href={item.link}
+              key={idx}
+              className="bg-black border border-white/15 p-8 rounded-2xl text-center hover:border-yellow-500/50 transition-all"
+            >
               <FontAwesomeIcon
-                icon={faEnvelope}
-                className="text-yellow-500 text-2xl"
+                icon={item.icon}
+                className="text-yellow-500 text-3xl mb-4"
               />
-              <h2 className="text-white font-bold text-2xl mx-1">Email</h2>
-              <p className="text-gray-400 ">bozanovic.ivan00@gmail.com</p>
-            </div>
-          </a>
-          <a href="tel:0995172098">
-            <div className="border  bg-black border-white/10 rounded-xl py-6 mx-6">
-              <FontAwesomeIcon
-                icon={faPhone}
-                className="text-yellow-500 text-2xl"
-              />
-              <h2 className="text-white font-bold text-2xl mx-1">Telefon</h2>
-              <p className="text-gray-400 ">099 517 2098</p>
-            </div>
-          </a>
-          <div className="border  bg-black border-white/10 rounded-xl py-6 mx-6">
-            <FontAwesomeIcon
-              icon={faLocationDot}
-              className="text-yellow-500 text-2xl"
-            />
-            <h2 className="text-white font-bold text-2xl mx-1">Adresa</h2>
-            <p className="text-gray-400 ">Vinkovci, Ul. Alojzija Stepinca 99</p>
+              <h4 className="text-white font-bold text-xl mb-1">
+                {item.title}
+              </h4>
+              <p className="text-gray-400 text-sm">{item.info}</p>
+            </a>
+          ))}
+        </div>
+        <div className="flex justify-center gap-8 mb-20">
+          {[
+            {
+              icon: faWhatsapp,
+              color: "hover:text-green-500",
+              url: "https://wa.me/385995172098",
+            },
+            {
+              icon: faViber,
+              color: "hover:text-purple-500",
+              url: "viber://chat?number=%2B385995172098",
+            },
+            { icon: faFacebook, color: "hover:text-blue-600", url: "#" },
+          ].map((soc, i) => (
+            <a
+              key={i}
+              href={soc.url}
+              className={`text-gray-600 text-4xl transition-all hover:scale-110 ${soc.color}`}
+            >
+              <FontAwesomeIcon icon={soc.icon} />
+            </a>
+          ))}
+        </div>
+
+        {/* Okvir mape */}
+        <div className="relative w-full h-[350px] md:h-[450px] my-20 md:w-3/4 lg:w-2/3 md:mx-auto group transition-all duration-500">
+          <div className="w-full h-full overflow-hidden rounded-xl border border-white/10 shadow-2xl shadow-yellow-500/5 transition-all duration-500 group-hover:border-yellow-500/30">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4847.527318291219!2d18.768980212587486!3d45.289408418095476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475cf56dc14841d3%3A0x7e7051ef85ae98d4!2sBO%C5%BDANOVI%C4%86%2C%20obrt%20za%20popravak%20ku%C4%87anskih%20aparata%2C%20vl.%20Ivan%20Bo%C5%BEanovi%C4%87!5e0!3m2!1shr!2shr!4v1769708498255!5m2!1shr!2shr" // Ovdje ide tvoj stvarni Google Maps Embed URL
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="grayscale-0 invert-0 opacity-100 md:grayscale md:invert-[0.9] md:contrast-[1.2] md:opacity-70 md:group-hover:grayscale-0 md:group-hover:invert-0 md:group-hover:opacity-100 transition-all duration-700 ease-in-out"
+            ></iframe>
           </div>
-        </div>
-        <div className="justify-center flex gap-5">
-          <a
-            href="https://wa.me/385995172098"
-            target="_blank"
-            className="text-gray-500 hover:text-green-500 text-4xl transition-colors"
-          >
-            <FontAwesomeIcon icon={faWhatsapp} />
-          </a>
-          <a
-            href="viber://chat?number=%2B385995172098"
-            className="text-gray-500 hover:text-purple-500 text-4xl transition-colors"
-          >
-            <FontAwesomeIcon icon={faViber} />
-          </a>
-          <a
-            href="#"
-            className="text-gray-500 hover:text-blue-600 text-4xl transition-colors"
-          >
-            <FontAwesomeIcon icon={faFacebook} />
-          </a>
-        </div>
-        <div className="w-full h-[350px] md:h-[450px] border-t border-white/10 my-10 md:w-2/3 md:mx-auto">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4847.527318291219!2d18.768980212587486!3d45.289408418095476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475cf56dc14841d3%3A0x7e7051ef85ae98d4!2sBO%C5%BDANOVI%C4%86%2C%20obrt%20za%20popravak%20ku%C4%87anskih%20aparata%2C%20vl.%20Ivan%20Bo%C5%BEanovi%C4%87!5e0!3m2!1shr!2shr!4v1769708498255!5m2!1shr!2shr"
-            width="100%"
-            height="100%"
-            style={{ border: 0 }}
-            allowFullScreen=""
-            loading="lazy"
-            className="grayscale contrast-[1.0]"
-          ></iframe>
         </div>
       </div>
       <footer className="bg-black text-white/30 text-center py-10 text-xs tracking-[5px] uppercase border-t border-white/10">
