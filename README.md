@@ -1,6 +1,3 @@
-Readme · MD
-Copy
-
 # Servis Božanović — Web Stranica
 
 Prezentacijska web stranica izrađena za **Servis Božanović**, obrt za servis kućanskih aparata i klimatizacije.
