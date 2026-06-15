@@ -20,20 +20,19 @@ export function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const images = [
-    { id: 1, img: "marke/blitz.png", name: "Blitz" },
-    { id: 2, img: "marke/fram.png", name: "Fram" },
-    { id: 3, img: "marke/franke.png", name: "Franke" },
-    { id: 4, img: "marke/heinner.png", name: "Heinner" },
-    { id: 5, img: "marke/lg.png", name: "LG" },
-    { id: 6, img: "marke/liebherr.png", name: "Liebherr" },
-    { id: 7, img: "marke/midea.png", name: "Midea" },
-    { id: 8, img: "marke/plamen.png", name: "Plamen Požega" },
-    { id: 9, img: "marke/sharp.png", name: "Sharp" },
-    { id: 10, img: "marke/simfer.png", name: "Simfer" },
-    { id: 11, img: "marke/smeg.png", name: "Smeg" },
+    { id: 1, img: "marke/plamen.png", name: "Plamen Požega" },
+    { id: 2, img: "marke/lg.png", name: "LG" },
+    { id: 3, img: "marke/smeg.png", name: "Smeg" },
+    { id: 4, img: "marke/faber.png", name: "Faber" },
+    { id: 5, img: "marke/midea.png", name: "Midea" },
+    { id: 6, img: "marke/fram.png", name: "Fram" },
+    { id: 7, img: "marke/franke.png", name: "Franke" },
+    { id: 8, img: "marke/heinner.png", name: "Heinner" },
+    { id: 9, img: "marke/liebherr.png", name: "Liebherr" },
+    { id: 10, img: "marke/sharp.png", name: "Sharp" },
+    { id: 11, img: "marke/simfer.png", name: "Simfer" },
     { id: 12, img: "marke/tcl.png", name: "TCL" },
-    { id: 13, img: "marke/tecro.png", name: "Tecro" },
-    { id: 14, img: "marke/tesla.png", name: "Tesla" },
+    { id: 13, img: "marke/tesla.png", name: "Tesla" },
   ];
 
   const servisi = [
@@ -56,6 +55,27 @@ export function Home() {
       icon: "🔥",
     },
   ];
+
+  const reference = [
+    {
+      id: 1,
+      ime: "Marko Horvat",
+      tekst:
+        "Odličan servis! Ivan je bio profesionalan, ozbiljan i pouzdana osoba. Jako brzo je riješio problem sa mojim hladnjakom.",
+    },
+    {
+      id: 2,
+      ime: "Ana Vuković",
+      tekst:
+        "Preporučujem! Montaža klima uređaja je bila obavljena brzo i stručno. Ivan zna što radi.",
+    },
+    {
+      id: 3,
+      ime: "Petar Novak",
+      tekst:
+        "Zadovoljan sam kvalitetom rada. Cijene su fer i korektne. Sigurno ću koristiti opet.",
+    },
+  ];
   useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -68,12 +88,13 @@ export function Home() {
     <div className="overflow-x-hidden">
       {/* NAVIGACIJA */}
       <nav className="fixed top-0 left-0 w-full z-100 bg-black/80 backdrop-blur-md border-b border-white/5 px-6 py-6 md:py-8 flex justify-between items-center transition-all duration-300">
-        <div className="text-2xl font-black tracking-tighter text-white">
-          BOŽANOVIĆ
+        <div className="text-2xl  tracking-tighter text-white">
+          <span className="font-black">BOŽANOVIĆ,</span>{" "}
+          <span>obrt za popravak kućanskih aparata, vl. Ivan Božanović</span>
         </div>
 
         {/* DESKTOP MENU */}
-        <div className="hidden md:flex gap-8 uppercase font-bold text-sm tracking-widest text-white">
+        <div className="hidden md:flex gap-8 uppercase font-bold text-xl tracking-widest text-white">
           <ScrollLink
             to="usluge"
             className="cursor-pointer hover:text-yellow-500 transition-colors duration-300"
@@ -165,32 +186,32 @@ export function Home() {
       <div className="h-24 md:h-28 bg-black"></div>
 
       {/* HERO */}
-      <div className="relative bg-black text-white h-[calc(100vh-97px)] justify-center text-center items-center flex flex-col overflow-hidden">
+      <div className="relative bg-black text-white h-[calc(100vh-97px-145px)] justify-center text-center items-center flex flex-col overflow-hidden">
         {/* GLOW */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 bg-yellow-500/10 blur-[120px] rounded-full animate-pulse pointer-events-none"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-100 h-100 bg-yellow-500/10 blur-[120px] rounded-full animate-pulse pointer-events-none"></div>
 
         <img
           src="logo.png"
           alt="Logo"
-          className="max-w-1/5 md:max-w-1/8 lg:max-w-1/16 relative z-10 mb-2 transition-transform duration-1000 animate-in fade-in slide-in-from-top-4"
+          className="max-w-1/3 md:max-w-1/5 lg:max-w-1/8 relative z-10 mb-2 transition-transform duration-1000 animate-in fade-in slide-in-from-top-4"
         />
 
-        <div className="uppercase text-4xl tracking-tighter font-black relative z-10 animate-in fade-in duration-700 delay-200">
+        <div className="uppercase text-5xl tracking-tighter font-black relative z-10 animate-in fade-in duration-700 delay-200">
           Božanović
         </div>
 
         <div className="flex gap-4 items-center pb-8 relative z-10 animate-in fade-in duration-700 delay-400">
           <div className="h-px w-10 bg-yellow-500/40"></div>
-          <span className="text-[11px] uppercase tracking-[5px] text-yellow-500 font-medium">
-            Established 1993
+          <span className="text-[13px] uppercase tracking-[5px] text-yellow-500 font-medium">
+            Est. 1993
           </span>
           <div className="h-px w-10 bg-yellow-500/40"></div>
         </div>
 
-        <h1 className="text-6xl md:text-7xl font-black tracking-tight mb-10 mx-1 relative z-10 leading-[0.9] animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-600">
-          Vaši aparati u <br />
+        <h1 className="text-6xl md:text-7xl tracking-tight mb-10 mx-1 relative z-10 leading-[0.9] animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-600 elegant-serif">
+          Obiteljska tradicija <br />
           <span className="bg-linear-to-r from-white via-white to-yellow-500 text-transparent bg-clip-text">
-            najboljim rukama.
+            servisiranja.
           </span>
         </h1>
 
@@ -271,14 +292,46 @@ export function Home() {
             Ovlašteni servis i montaža
           </h3>
         </div>
-        <div className="flex flex-wrap text-center justify-center gap-3 max-w-4xl mx-auto px-6">
+        <div className="flex flex-wrap text-center justify-center gap-4 max-w-5xl mx-auto px-6">
           {images.map((item) => (
             <button
-              className=" border rounded-full px-5 py-2 border-white/10 bg-white/5 uppercase text-xs tracking-wider text-gray-300 hover:bg-yellow-500 hover:text-black transition-colors cursor-default"
+              className=" border rounded-full px-7 py-3 border-white/10 bg-white/5 uppercase text-sm tracking-wider text-gray-300 hover:bg-yellow-500 hover:text-black transition-colors cursor-default"
               key={item.id}
             >
               {item.name}
             </button>
+          ))}
+        </div>
+      </div>
+
+      {/* REFERENCE */}
+      <div className="bg-[#030303] py-24" id="reference">
+        <div className="text-center items-center mb-16">
+          <h2 className="text-yellow-500 uppercase tracking-[6px] font-bold text-xs mb-2">
+            Što govore o nama
+          </h2>
+          <h3 className="text-white font-black text-4xl md:text-5xl mx-1">
+            Reference i preporuke
+          </h3>
+        </div>
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-6">
+          {reference.map((item) => (
+            <div
+              key={item.id}
+              className="text-white border border-white/5 bg-[#080808] rounded-2xl p-8 hover:border-yellow-500/30 transition-all hover:-translate-y-2"
+            >
+              <div className="flex gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <span key={i} className="text-yellow-500">
+                    ★
+                  </span>
+                ))}
+              </div>
+              <p className="text-gray-300 text-md mb-6 leading-relaxed italic">
+                "{item.tekst}"
+              </p>
+              <p className="text-white font-bold">{item.ime}</p>
+            </div>
           ))}
         </div>
       </div>
@@ -293,26 +346,37 @@ export function Home() {
             <h3 className="text-white font-black text-4xl mb-6">
               Obrt Božanović
             </h3>
-            <p className="text-gray-400 text-lg leading-relaxed mb-8">
-              Kvaliteta i povjerenje temelj su mog obrta od 1993. godine. Kao
-              inženjer elektrotehnike, svakom uređaju pristupam s najvišom
-              razinom stručnosti i preciznosti, osiguravajući dugovječnost vaših
-              uređaja.
-            </p>
-            <div className="space-y-4">
-              {[
-                "Garancija na svaki rad",
-                "Originalni rezervni dijelovi",
-                "Brz dolazak na adresu",
-              ].map((text, i) => (
-                <div key={i} className="flex items-center gap-3">
-                  <FontAwesomeIcon
-                    icon={faCircleCheck}
-                    className="text-yellow-500"
-                  />
-                  <span className="text-white font-medium">{text}</span>
-                </div>
-              ))}
+            <div className="text-gray-400 text-lg leading-relaxed mb-8 space-y-4">
+              <p>
+                Sve je započelo 1993. godine kada je Mirko Božanović osnovao
+                obrt s jednostavnom idejom – pružiti kvalitetnu, poštenu i
+                pouzdanu uslugu svakom korisniku. Kroz godine predanog rada
+                stečeno je povjerenje brojnih zadovoljnih klijenata.
+              </p>
+              <p>
+                Godine 2024. obrt preuzima Ivan Božanović, nastavljajući
+                obiteljsku tradiciju uz moderan pristup radu i stalno praćenje
+                novih tehnologija. Iako se mnogo toga promijenilo od samih
+                početaka, vrijednosti na kojima je obrt izgrađen ostale su iste
+                – stručnost, pouzdanost i zadovoljstvo korisnika.
+              </p>
+              <p>
+                Danas pružamo usluge servisiranja, održavanja i popravka
+                kućanskih aparata, uključujući hladnjake, zamrzivače, perilice i
+                sušilice rublja, električne i plinske bojlere, štednjake, peći
+                te ostale kućanske uređaje. Ponosni smo i ovlašteni servis za
+                peći na kruta goriva proizvođača Plamen Požega, što dodatno
+                potvrđuje našu stručnost i pouzdanost u području grijanja.
+              </p>
+              <p>
+                Uz servis kućanskih aparata bavimo se i montažom, servisiranjem
+                te redovitim održavanjem klima uređaja, uz poseban naglasak na
+                ispravan rad, energetsku učinkovitost i dugotrajnost sustava.
+              </p>
+              <p>
+                Naš cilj ostaje isti – pružiti brzu, kvalitetnu i pouzdanu
+                uslugu na koju se korisnici mogu osloniti iz godine u godinu.
+              </p>
             </div>
           </div>
 
@@ -376,7 +440,7 @@ export function Home() {
               <h4 className="text-white font-bold text-xl mb-1">
                 {item.title}
               </h4>
-              <p className="text-gray-400 text-sm">{item.info}</p>
+              <p className="text-gray-400 text-base md:text-lg">{item.info}</p>
             </a>
           ))}
         </div>
@@ -415,7 +479,7 @@ export function Home() {
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              className="grayscale-0 invert-0 opacity-100 md:grayscale md:invert-[0.9] md:contrast-[1.2] md:opacity-70 md:group-hover:grayscale-0 md:group-hover:invert-0 md:group-hover:opacity-100 transition-all duration-700 ease-in-out"
+              className=" opacity-100  transition-all duration-700 ease-in-out"
             ></iframe>
           </div>
         </div>
