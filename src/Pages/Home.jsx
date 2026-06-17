@@ -1,7 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPhone,
-  faCircleCheck,
   faUserTie,
   faEnvelope,
   faLocationDot,
@@ -88,9 +87,11 @@ export function Home() {
     <div className="overflow-x-hidden">
       {/* NAVIGACIJA */}
       <nav className="fixed top-0 left-0 w-full z-100 bg-black/80 backdrop-blur-md border-b border-white/5 px-6 py-6 md:py-8 flex justify-between items-center transition-all duration-300">
-        <div className="text-2xl  tracking-tighter text-white">
+        <div className="text-xl  tracking-tighter text-white">
           <span className="font-black">BOŽANOVIĆ,</span>{" "}
-          <span>obrt za popravak kućanskih aparata, vl. Ivan Božanović</span>
+          <span className="text-base md:text-2xl">
+            obrt za popravak kućanskih aparata, vl. Ivan Božanović
+          </span>
         </div>
 
         {/* DESKTOP MENU */}
@@ -183,10 +184,10 @@ export function Home() {
         </div>
       </section>
 
-      <div className="h-24 md:h-28 bg-black"></div>
+      <div className="h-26 md:h-24 bg-black"></div>
 
       {/* HERO */}
-      <div className="relative bg-black text-white h-[calc(100vh-97px-145px)] justify-center text-center items-center flex flex-col overflow-hidden">
+      <div className="relative bg-black pt-1.5 text-white h-[calc(100vh-112px-144px)] md:h-[calc(100vh-96px-144px)] justify-center text-center items-center flex flex-col overflow-hidden">
         {/* GLOW */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-100 h-100 bg-yellow-500/10 blur-[120px] rounded-full animate-pulse pointer-events-none"></div>
 
@@ -196,7 +197,7 @@ export function Home() {
           className="max-w-1/3 md:max-w-1/5 lg:max-w-1/8 relative z-10 mb-2 transition-transform duration-1000 animate-in fade-in slide-in-from-top-4"
         />
 
-        <div className="uppercase text-5xl tracking-tighter font-black relative z-10 animate-in fade-in duration-700 delay-200">
+        <div className="uppercase text-4xl md:text-5xl tracking-tighter font-black relative z-10 animate-in fade-in duration-700 delay-200">
           Božanović
         </div>
 
@@ -208,7 +209,7 @@ export function Home() {
           <div className="h-px w-10 bg-yellow-500/40"></div>
         </div>
 
-        <h1 className="text-6xl md:text-7xl tracking-tight mb-10 mx-1 relative z-10 leading-[0.9] animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-600 elegant-serif">
+        <h1 className="text-4xl md:text-7xl tracking-tight mb-10 mx-1 relative z-10 leading-[0.9] animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-600 elegant-serif">
           Obiteljska tradicija <br />
           <span className="bg-linear-to-r from-white via-white to-yellow-500 text-transparent bg-clip-text">
             servisiranja.
@@ -217,9 +218,9 @@ export function Home() {
 
         <a
           href="tel:0995172098"
-          className="group relative z-10 overflow-hidden rounded-full px-20 py-5 font-black bg-yellow-500 text-black shadow-[0_0_20px_rgba(234,179,8,0.3)] transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(234,179,8,0.5)] active:scale-95 uppercase tracking-[2px] mb-30 animate-in fade-in zoom-in-95 duration-700 delay-800"
+          className="group relative z-10 flex items-center overflow-hidden rounded-full px-20 py-5 font-black bg-yellow-500 text-black shadow-[0_0_20px_rgba(234,179,8,0.3)] transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(234,179,8,0.5)] active:scale-95 uppercase tracking-[2px] mb-30 animate-in fade-in zoom-in-95 duration-700 delay-800"
         >
-          <span className="relative z-10">Nazovi odmah</span>
+          <span className="relative z-10 flex items-center">Nazovi odmah</span>
 
           <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out"></div>
         </a>
